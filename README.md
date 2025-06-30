@@ -6,7 +6,7 @@ A Node.js application that analyzes trade data to detect companies engaged in ex
 
 - **Excessive Cancellation Detection**: Identifies companies with cancellation ratios exceeding 1/3 in any 60-second window
 - **Well-Behaved Company Analysis**: Counts companies that maintain proper trading behavior
-- **CSV Data Processing**: Handles large CSV files with trade transaction data
+- **CSV Data Processing**: Handles large CSV files with trade transaction data using streaming
 - **Clean Architecture**: Built with hexagonal architecture and DDD principles
 - **Comprehensive Testing**: Full test coverage with Jest
 
@@ -92,6 +92,13 @@ The project includes comprehensive unit tests covering:
 - Application use cases
 - Infrastructure components
 - Integration tests with sample data
+
+## Performance
+
+The application uses streaming to process CSV files efficiently:
+- **Memory efficient**: Processes files line-by-line instead of loading entire content into memory
+- **Scalable**: Can handle large files without memory issues
+- **Fast**: Uses Node.js readline interface for optimal performance
 
 ## Requirements
 

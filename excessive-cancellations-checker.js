@@ -6,7 +6,7 @@ import {
     GetTotalWellBehavedCompaniesQueryHandler,
 } from './src/application/query/GetTotalWellBehavedCompaniesQueryHandler.js';
 
-export class ExcessiveCancellationsChecker {
+class ExcessiveCancellationsChecker {
     /**
      * @param {string} filePath - The path to the CSV file containing trade data.
      * @param {TradeReader} [tradeReader] - Optional: An instance of a class that implements TradeReaderPort.
@@ -44,3 +44,30 @@ export class ExcessiveCancellationsChecker {
         }
     }
 }
+
+async function main() {
+    console.log('🔍 Trade Cancellation Detector\n');
+    
+    try {
+        const checker = new ExcessiveCancellationsChecker('data/trades.csv');
+        
+        console.log('📊 Analyzing trade data with streaming...\n');
+
+        console.log('🔍 Finding companies with excessive cancellations...');
+        const excessiveCompanies = await checker.companiesInvolvedInExcessiveCancellations();
+        console.log(`Found ${excessiveCompanies.length} companies with excessive cancellations:`);
+        excessiveCompanies.forEach(company => console.log(`  - ${company}`));
+        
+        console.log('\n📈 Counting well-behaved companies...');
+        const wellBehavedCount = await checker.totalNumberOfWellBehavedCompanies();
+        console.log(`Total well-behaved companies: ${wellBehavedCount}`);
+        
+        console.log('\n✅ Analysis complete!');
+        
+    } catch (error) {
+        console.error('❌ Error:', error.message);
+        process.exit(1);
+    }
+}
+
+main();
