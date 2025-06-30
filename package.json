@@ -1,10 +1,36 @@
 {
-  "name": "codescreen-javascript-foo",
+  "name": "trade-cancellation-detector",
   "version": "1.0.0",
-  "private": true,
+  "description": "A Node.js application that analyzes trade data to detect companies engaged in excessive order cancellations using streaming and clean architecture",
+  "main": "excessive-cancellations-checker.js",
+  "keywords": [
+    "trade-analysis",
+    "financial-data",
+    "csv-processing",
+    "streaming",
+    "clean-architecture",
+    "domain-driven-design",
+    "hexagonal-architecture",
+    "trading",
+    "cancellation-detection",
+    "financial-compliance",
+    "data-analysis",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Sergio Almela",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergioalmela/trade-cancellation-detector.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "test": "jest",
-    "start": "node excessive-cancellations-checker.js"
+    "start": "node excessive-cancellations-checker.js",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.27.2",
